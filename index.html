@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MeloTunes Store</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      background-image: url('https://i.pinimg.com/564x/fb/c9/d2/fbc9d2d79447619d5bf188d5e18077c9.jpg');
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+    }
+    header {
+      background-color: #333;
+      color: #fff;
+      padding: 10px 0;
+      text-align: center;
+    }
+    nav {
+      text-align: center;
+      margin: 20px 0;
+    }
+    nav a {
+      text-decoration: none;
+      color: #fff;
+      margin: 0 10px;
+    }
+    .container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-top: 50px;
+    }
+    .product {
+      background-color: #f9f9f9;
+      border: 10px solid #ccc; 
+      border-radius: 5px;
+      padding: 20px;
+      margin: 10px;
+      max-width: 100%; /* Adjusted for responsiveness */
+      text-align: center;
+    }
+    button {
+      background-color: #333;
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    /* About Us Section */
+    #about-us,
+    #contact-us {
+      background-color: rgba(255, 255, 255, 0.8); /* Light background color */
+      padding: 20px; /* Add padding for better readability */
+    }
+
+    /* Text Styling for About Us and Contact Us */
+    #about-us p,
+    #contact-us p {
+      color: #333; /* Text color */
+      font-size: 16px; /* Font size */
+      line-height: 1.5; /* Line height */
+    }
+
+    /* Featured Products Heading */
+    #featured-products h2 {
+      width: 100%;
+      text-align: center;
+      color: #fff;
+      margin-bottom: 20px;
+    }
+
+    /* Ensure flex container stays centered */
+    #featured-products,
+    #product-listing {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    /* Media Query for smaller screens */
+    @media only screen and (max-width: 768px) {
+      .product {
+        width: 90%; /* Adjusted width for smaller screens */
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>MeloTunes Store</h1>
+    <nav>
+      <a href="#" id="home-btn">Home</a>
+      <a href="#" id="products-btn">Products</a>
+      <a href="#" id="about-btn">About Us</a>
+      <a href="#" id="contact-btn">Contact Us</a>
+    </nav>
+  </header>
+
+  <div class="container" id="content">
+    <!-- Featured Products -->
+    <div id="featured-products">
+      <h2>Featured Products</h2>
+      <div class="product">
+        <img src="https://i.pinimg.com/474x/90/c1/c7/90c1c7e0f96bf44cd823044100a6db2b.jpg" alt="Product 1">
+        <p>₱1200</p>
+      </div>
+      <div class="product">
+        <img src="https://i.pinimg.com/474x/c1/1a/35/c11a355ecf45d16b38bf7b4f9729b3fe.jpg" alt="Product 2">
+        <p>₱1300</p>
+      </div>
+    </div>
+
+    <!-- Product Listing (Initially Hidden) -->
+    <div id="product-listing" style="display: none;">
+      <div class="product">
+        <img src="https://i.pinimg.com/474x/5b/c9/03/5bc903c64df4b9d6905e40a13167b241.jpg" alt="Product 4">
+        <p>₱1400</p>
+        <button onclick="addToCart(1400)">Add to Cart</button>
+      </div>
+      <div class="product">
+        <img src="https://i.pinimg.com/474x/2a/db/54/2adb5420ee75af9bc0154dcadb9437d9.jpg" alt="Product 5">
+        <p>₱1500</p>
+        <button onclick="addToCart(1500)">Add to Cart</button>
+      </div>
+      <div class="product">
+        <img src="https://i.pinimg.com/474x/b5/17/f8/b517f8e431ec90db4fbee94ea9248cf6.jpg" alt="Product 6">
+        <p>₱1600</p>
+        <button onclick="addToCart(1600)">Add to Cart</button>
+      </div>
+    </div>
+
+    <!-- About Us Section (Initially Hidden) -->
+    <div id="about-us" style="display: none;">
+      <p>Welcome to MeloTunes Store, your number one source for all things music. We're dedicated to providing you the very best of vinyl records, with an emphasis on quality, customer service, and uniqueness. We are the resellers for the 1975! </p>
+      <p>Founded in 2024 by Pauline Joy Buenafe, a dedicated fan of The 1975, our company is committed to bringing the best of The 1975’s merchandise to fans worldwide. As resellers, we strive to provide an exceptional shopping experience, offering a wide range of products that reflect the band's unique style and artistic vision. MeloTunes has come a long way from its beginnings. When we first started out, our passion for music drove us to start our own business.</p>
+	<p>We hope you enjoy our products as much as we enjoy offering them to you. If you have any questions or comments, please don't hesitate to contact us.</p>
+	<p>Sincerely,<br>The MeloTunes Team</p>
+	</div>
+	<div id="contact-us" style="display: none;">
+  <p>Email: melotunesstore@email.com</p>
+  <p>Phone: 123-456-7890</p>
+</div>
+  </div>
+  <script>
+    document.getElementById('home-btn').addEventListener('click', function() {
+      document.getElementById('featured-products').style.display = 'flex';
+      document.getElementById('product-listing').style.display = 'none';
+      document.getElementById('about-us').style.display = 'none';
+      document.getElementById('contact-us').style.display = 'none';
+    });
+
+    document.getElementById('products-btn').addEventListener('click', function() {
+      document.getElementById('featured-products').style.display = 'none';
+      document.getElementById('product-listing').style.display = 'flex';
+      document.getElementById('about-us').style.display = 'none';
+      document.getElementById('contact-us').style.display = 'none';
+    });
+
+    document.getElementById('about-btn').addEventListener('click', function() {
+      document.getElementById('featured-products').style.display = 'none';
+      document.getElementById('product-listing').style.display = 'none';
+      document.getElementById('about-us').style.display = 'block';
+      document.getElementById('contact-us').style.display = 'none';
+    });
+
+    document.getElementById('contact-btn').addEventListener('click', function() {
+      document.getElementById('featured-products').style.display = 'none';
+      document.getElementById('product-listing').style.display = 'none';
+      document.getElementById('about-us').style.display = 'none';
+      document.getElementById('contact-us').style.display = 'block';
+    });
+
+    let cartTotal = 0;
+
+    function addToCart(price) {
+      cartTotal += price;
+      alert("Product added to cart. Total: ₱" + cartTotal);
+    }
+  </script>
+</body>
+</html>
